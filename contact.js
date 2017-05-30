@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
  //   $('#contactusform').validator();
 
     $('#contact-us-button').on('click', function (e) {
-		alert("in");
+		//alert("in");
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
            // alert($(this).serialize());
@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
                 data: $(this).serialize(),
                 success: function (data)
                 {
-				   alert("data: "+data);
+				//   alert("data: "+data);
 					var result=JSON.parse(data);
 					
                     var messageAlert = 'alert-' + result.type;
