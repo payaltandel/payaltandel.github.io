@@ -3,7 +3,8 @@ jQuery(document).ready(function() {
     $('#contactusform').validator();
     alert("hello");
     $('#contactusform').on('click', function (e) {
-		alert("in");
+		alert("in to");
+	    
         if (!e.isDefaultPrevented()) {
             var url = "contact.php";
             alert($(this).serialize());
