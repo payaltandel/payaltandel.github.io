@@ -1,7 +1,7 @@
 $buttonID='updateadd-ons';
 $tickettype_id=4;
 $add_on_id=1;
-$addon_value=3;
+$addon_value=5;
 
 uid_management ma line 274 par aa
 <div id="access_package_div" title="Add Access Package" style="display:none;">
