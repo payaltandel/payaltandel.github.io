@@ -1,7 +1,7 @@
 //$(function () {
 jQuery(document).ready(function() {
     $('#contactusform').validator();
-
+    alert("hello");
     $('#contactusform').on('click', function (e) {
 		alert("in");
         if (!e.isDefaultPrevented()) {
