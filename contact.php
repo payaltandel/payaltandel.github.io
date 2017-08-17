@@ -19,7 +19,7 @@ Comments:	'.$_POST['comment'].'
     $mail->Host = "smtp.gmail.com";  //Gmail SMTP server address
     $mail->Port = 465;  //Gmail SMTP port
     $mail->Encoding = '7bit';
-    
+    echo "hello";
     // Authentication  
     $mail->Username   = "payalt.1989@gmail.com"; // Your full Gmail address
     $mail->Password   = "loveugotu"; // Your Gmail password
