@@ -1,0 +1,73 @@
+$buttonID='updateadd-ons';
+$tickettype_id=4;
+$add_on_id=1;
+$addon_value=3;
+
+uid_management ma line 274 par aa
+<div id="access_package_div" title="Add Access Package" style="display:none;">
+    <table>
+        <?php
+        $packages = Accreditation::allAccreditationPackage();
+
+        foreach ($packages as $package) :
+            ?>
+            <tr>
+                <td><input type="checkbox" id="package_<?php echo $package['id']?>" name="package_<?php echo $package['id']?>" value="<?php echo $package['zone_id_list']?>" <?php if(Accreditation::hasPackageAccessToZoneSkipDateCheck($ticketid,$package['id'])) :?>checked="checked" <?php endif;?>/></td>
+                <td>
+                    <label for="package_<?php echo $package['id']?>"><?php echo $package['name']?></label>
+                </td>
+            </tr>
+
+            <?php
+        endforeach;
+        ?>
+    </table>
+
+</div>
+
+
+//js
+function updateAddOn(id){
+	var buttonID=id;
+	var tickettype_id = <?php echo $_REQUEST['ticketid']; ?>;
+	var add_on_id = document.getElementById("addon-list").value;
+	var addon_value = document.getElementById("addonnum").value;
+	if(addon_value=="")
+	{
+	          $('#frm_addon').find('#msg').html("Please Enter Number of AddOn");
+	          $('#msg').fadeIn(3000);
+	          $('#msg').delay(5000).fadeOut(300);
+	}
+	else
+	{
+	 var dataString = 'tickettype_id=' + tickettype_id + '&add_on_id=' + add_on_id + '&addon_value=' + addon_value+ '&buttonID=' + buttonID;
+	 alert(dataString);
+
+	 $.post("get_addon.php",{tickettype_id:tickettype_id,add_on_id:add_on_id,addon_value:addon_value,buttonID:buttonID},
+        function(data,status){
+				  alert(data);
+					alert(status);
+					 /*if(result.success)
+							 $(divRow.children[1]).text(newVal);
+					 else if(result.error)
+							 alert(result.error);
+					 else
+							 alert('Unknown error encountered. Please contact an administrator before continuing');*/
+
+			 });
+
+/*	$.ajax({
+	type: "POST",
+	url: "get_addon.php",
+	data:dataString,
+	success: function(result){
+		//var result=JSON.parse(result);
+	  //var alertBox = '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Success</div>';
+	  $('#frm_addon').find('#msg').html("success");
+					   $('#msg').fadeIn(3000);
+					  $('#msg').delay(5000).fadeOut(300);
+	                  $('#frm_addon')[0].reset();
+	}
+}); */
+	}
+}
